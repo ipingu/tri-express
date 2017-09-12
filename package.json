@@ -1,22 +1,24 @@
 {
-    "name": "tri-express",
-    "version": "1.0.0",
-    "description": "Images sorter",
-    "main": "main.js",
-    "scripts": {
-        "test": "electron ."
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ipingu/tri-express.git"
-    },
-    "author": "Erik Clairiot",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/ipingu/tri-express/issues"
-    },
-    "homepage": "https://github.com/ipingu/tri-express#readme",
-    "devDependencies": {
-        "electron": "^1.7.6"
-    }
+  "name": "tri-express",
+  "version": "1.0.0",
+  "description": "Images sorter",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipingu/tri-express.git"
+  },
+  "author": "Erik Clairiot",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ipingu/tri-express/issues"
+  },
+  "homepage": "https://github.com/ipingu/tri-express#readme",
+  "dependencies": {
+    "chokidar": "^1.7.0",
+    "electron": "^1.7.6",
+    "express": "^4.14.0"
+  }
 }

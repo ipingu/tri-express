@@ -37,15 +37,17 @@ header ul li {
   flex: 1 0 auto;
 }
 
-.carousel img {
+.carousel img.current {
   border: 1em solid white;
+  width: 600px;
 }
 
 .carousel img.next,img.previous {
   margin: 2em;
   opacity: 0.5;
-  border: 0;
+  width: 150px;
 }
+
 
 .star-empty {
   opacity: 0.2;
