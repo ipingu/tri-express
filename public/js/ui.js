@@ -5,6 +5,9 @@
       var currentResources = undefined;
       var currentResourceIndex = 0;
       var maximumNotation = 5;
+      var removedImagesCount = 0;
+      var ratedImagesCount = 0;
+      var totalImagesCount = 0;
 
       var _callGetFilesApi = function() {
           $.ajax({
@@ -12,16 +15,22 @@
               data: {}
           }).done(function(data) {
               currentResources = data;
-              console.log(currentResources.resources.length + " resources retrieved");
 
-              $(".info-images-count").text(currentResources.resources.length);
-              $(".info-images-rated").text(0);
-              $(".info-images-deleted").text(0);
-              $(".info-images-remaining").text(currentResources.resources.length);
+              totalImagesCount = currentResources.resources.length;
+              removedImagesCount = 0;
+              ratedImagesCount = 0;
 
+              _updateCollectionStatus();
               _updateDisplayedImages();
           });
       };
+
+      var _updateCollectionStatus = function() {
+          $(".info-images-count").text(totalImagesCount);
+          $(".info-images-rated").text(ratedImagesCount);
+          $(".info-images-deleted").text(removedImagesCount);
+          $(".info-images-remaining").text(totalImagesCount - removedImagesCount - ratedImagesCount);
+      }
 
       var _updateRatingStars = function() {
           var rating = currentResources.resources[currentResourceIndex].rating;
@@ -77,16 +86,38 @@
       var updateRating = function(delta) {
           if ((delta > 0 && currentResources.resources[currentResourceIndex].rating < maximumNotation) ||
               (delta < 0 && currentResources.resources[currentResourceIndex].rating > 0)) {
+
+              if (currentResources.resources[currentResourceIndex].rating == 0) {
+                  ratedImagesCount++;
+              } else if (currentResources.resources[currentResourceIndex].rating + delta == 0) {
+                  ratedImagesCount--;
+              }
+
               currentResources.resources[currentResourceIndex].rating += delta;
 
+
+
               _updateRatingStars();
+              _updateCollectionStatus();
           }
       }
 
       var removeFile = function() {
-          currentResources.resources[currentResourceIndex].remove =
-              currentResources.resources[currentResourceIndex].remove == undefined ? true : !currentResources.resources[currentResourceIndex].remove;
-          $("img.current").toggleClass("removed", currentResources.resources[currentResourceIndex].remove)
+          if (currentResources.resources[currentResourceIndex].remove) {
+              removedImagesCount--;
+          } else {
+              removedImagesCount++;
+
+              if (currentResources.resources[currentResourceIndex].rating > 0) {
+                  currentResources.resources[currentResourceIndex].rating = 0;
+                  ratedImagesCount--;
+              }
+          }
+
+          currentResources.resources[currentResourceIndex].remove = !currentResources.resources[currentResourceIndex].remove;
+          $("img.current").toggleClass("removed", currentResources.resources[currentResourceIndex].remove);
+
+          _updateCollectionStatus();
       }
 
       var fetchResources = function() {
