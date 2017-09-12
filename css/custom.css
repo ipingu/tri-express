@@ -1,0 +1,164 @@
+html {
+    background-color: #616264;
+    height: 100%;
+}
+body {
+    color: #c3c5c5;
+    font-size: 0.5em;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
+}
+header {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0.2em;
+}
+header ul li {
+  display: inline;
+  margin-right: 1em;
+  font-weight: bold;
+}
+
+.status-ok {
+  color: #12c720;
+}
+
+.status-ko {
+  color: rgba(255, 0, 0, 0.69);
+}
+
+.status-progress {
+  font-style: italic;
+}
+
+.carousel {
+  margin: 2em;
+  text-align: center;
+  flex: 1 0 auto;
+}
+
+.carousel img {
+  border: 1em solid white;
+}
+
+.carousel img.next,img.previous {
+  margin: 2em;
+  opacity: 0.5;
+  border: 0;
+}
+
+.star-empty {
+  opacity: 0.2;
+}
+
+.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.footer img {
+  height: 80px;
+}
+
+.clear {
+    margin-top: 2em;
+}
+.indent {
+    margin: 0.25em;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+    color: #2a80b0;
+    text-decoration: none;
+}
+nav a {
+    line-height: 2em;
+    padding: 0 1em;
+    display: block;
+    font-family: "Fjalla One", sans-serif;
+}
+nav.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+}
+nav.pagination a {
+    background-color: #ffffff;
+}
+nav#main {
+    font-size: 1em;
+    flex: 0 1 auto;
+}
+@media (min-width: 768px) {
+    nav#main {
+        font-size: 2em;
+    }
+}
+ul.line {
+    display: flex;
+    vertical-align: middle;
+    flex-wrap: wrap;
+}
+ul.line li {
+    flex: 1 1 350px;
+    margin: 0.5em;
+}
+ul.line img {
+    max-width: 100%;
+}
+ul.line img:hover {
+    opacity: 0.9;
+}
+ul.vertical li {
+    padding-bottom: 0.5em;
+}
+ul.vertical li a {
+    color: #243f41;
+}
+article {
+    padding: 2em 0;
+}
+article p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+article .wrapper {
+    flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+    article .wrapper {
+        flex-direction: row;
+    }
+}
+article h1 {
+    display: inline;
+    line-height: 2em;
+}
+article .title {
+    background-color: #ffffff;
+    display: inline-block;
+    padding-right: 0.5em;
+}
+article .title h2,
+article .title h3 {
+    display: inline;
+    line-height: 2em;
+}
+article.recipe .title {
+    display: block;
+    text-align: center;
+}
+/* h1 is the HOPENSTOCK text */
+
+h1,
+h2,
+h3 {
+    font-family: "Fjalla One", sans-serif;
+    color: #2a80b0;
+}
+h1 {
+    flex: 2;
+}
