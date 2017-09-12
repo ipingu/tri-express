@@ -29,7 +29,9 @@ var readFilesFromPath = function(imagesPath, callback) {
         files.forEach(file => {
             var resource = {
                 "id": file,
-                "path": "http://localhost:9999/file?id=" + file
+                "path": "http://localhost:9999/file?id=" + file,
+                "rating": 0,
+                "remove": false
             }
             currentResources.resources.push(resource);
         });

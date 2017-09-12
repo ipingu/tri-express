@@ -37,9 +37,13 @@ header ul li {
   flex: 1 0 auto;
 }
 
+.carousel img.current.removed {
+  border: 1em solid rgba(255, 0, 0, 0.69);
+}
+
 .carousel img.current {
   border: 1em solid white;
-  width: 600px;
+  width: 900px;
 }
 
 .carousel img.next,img.previous {
@@ -48,8 +52,7 @@ header ul li {
   width: 150px;
 }
 
-
-.star-empty {
+.star.inactive {
   opacity: 0.2;
 }
 

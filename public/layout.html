@@ -21,11 +21,11 @@
             <nav id="main">
                 <button type="button" id="cta-open-folder">Open folder</button>
                 <br />
-                <span>300 images found in local path C:/Users/Test</span>
+                <span class="info-images-count">300</span> images found in local path C:/Users/Test</span>
                 <ul>
-                    <li class="status-ok">48 rated</li>
-                    <li class="status-ko">70 deleted</li>
-                    <li class="status-progress">122 remaining</li>
+                    <li class="status-ok"><span class="info-images-rated">48</span> rated</li>
+                    <li class="status-ko"><span class="info-images-deleted">70</span> deleted</li>
+                    <li class="status-progress"><span class="info-images-remaining">122</span> remaining</li>
                 </ul>
             </nav>
         </header>
@@ -36,17 +36,19 @@
         <img class="next" src="http://via.placeholder.com/150x150" />
     </section>
 
-    <footer class="footer">
-        <img class="star-full" src="img/star-icon.png">
-        <img class="star-full" src="img/star-icon.png">
-        <img class="star-empty" src="img/star-icon.png">
-        <img class="star-empty" src="img/star-icon.png">
-        <img class="star-empty" src="img/star-icon.png">
+    <footer id="stars" class="footer">
+        <img class="star inactive" src="img/star-icon.png">
+        <img class="star inactive" src="img/star-icon.png">
+        <img class="star inactive" src="img/star-icon.png">
+        <img class="star inactive" src="img/star-icon.png">
+        <img class="star inactive" src="img/star-icon.png">
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/vendor/jquery-3.1.1.min.js"></script>
     <script src="js/ui.js"></script>
     <script>
+      TriExpress.init();
+
       TriExpress.fetchResources();
     </script>
     </body>
